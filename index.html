@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://gemini.google.com/static/images/gemini-sparkle-blue.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI WordPress Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* For custom scrollbars to match the dark theme */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1f2937; /* bg-gray-800 */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4b5563; /* bg-gray-600 */
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6b7280; /* bg-gray-500 */
+      }
+      /* FullCalendar Dark Theme Customizations */
+      :root {
+        --fc-border-color: #374151; /* gray-700 */
+        --fc-daygrid-event-dot-width: 8px;
+        --fc-list-event-dot-width: 10px;
+        --fc-list-event-hover-bg-color: #374151; /* gray-700 */
+      }
+      .fc {
+        color: #d1d5db; /* gray-300 */
+      }
+      .fc .fc-toolbar-title {
+        color: #ffffff;
+        font-size: 1.5rem;
+      }
+      .fc .fc-button-primary {
+        background-color: #374151; /* gray-700 */
+        border-color: #4b5563; /* gray-600 */
+        color: #f3f4f6; /* gray-100 */
+      }
+      .fc .fc-button-primary:not(:disabled):active, .fc .fc-button-primary:not(:disabled).fc-button-active {
+        background-color: #2563eb; /* blue-600 */
+        border-color: #1d4ed8; /* blue-700 */
+      }
+       .fc .fc-daygrid-day.fc-day-today {
+        background-color: rgba(37, 99, 235, 0.15); /* blue-600 with opacity */
+      }
+      .fc-daygrid-day-number {
+        color: #9ca3af; /* gray-400 */
+      }
+      .fc-day-past .fc-daygrid-day-number {
+        color: #4b5563; /* gray-600 */
+      }
+      /* Simple fade-in animation for UI elements */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.3s ease-out forwards;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^18.2.0/",
+    "react": "https://esm.sh/react@^18.2.0",
+    "react-dom/": "https://esm.sh/react-dom@^18.2.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^0.11.0",
+    "@fullcalendar/react": "https://esm.sh/@fullcalendar/react@6.1.11",
+    "@fullcalendar/daygrid": "https://esm.sh/@fullcalendar/daygrid@6.1.11",
+    "@fullcalendar/interaction": "https://esm.sh/@fullcalendar/interaction@6.1.11"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-900 text-gray-100">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
