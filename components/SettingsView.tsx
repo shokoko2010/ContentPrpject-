@@ -4,9 +4,12 @@ import { LanguageContext } from '../App';
 import { LanguageContextType, LanguageCode, Notification } from '../types';
 
 const BRAND_VOICE_STORAGE_KEY = 'brand_voice';
-const API_KEY_STORAGE_KEY = 'api_key'; // Note: In a real app, this should be handled server-side.
 
-const SettingsView: React.FC = () => {
+interface SettingsViewProps {
+    onLogout: () => void;
+}
+
+const SettingsView: React.FC<SettingsViewProps> = ({ onLogout }) => {
     const { language, setLanguage, t } = useContext(LanguageContext as React.Context<LanguageContextType>);
     const [brandVoice, setBrandVoice] = useState('');
     const [notification, setNotification] = useState<Notification | null>(null);
@@ -68,15 +71,16 @@ const SettingsView: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Save Button */}
-                <div className="flex justify-end">
+                <div className="flex justify-between">
+                    <button onClick={onLogout} className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-md transition-colors">
+                        {t('logoutButton')}
+                    </button>
                     <button onClick={handleSaveSettings} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-md transition-colors">
                         {t('saveSettings')}
                     </button>
                 </div>
             </div>
             
-            {/* Simple notification display */}
             {notification && (
                 <div className={`fixed bottom-5 right-5 p-4 rounded-lg text-white ${notification.type === 'success' ? 'bg-green-600' : 'bg-red-600'}`}>
                     {notification.message}
